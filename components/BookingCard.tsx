@@ -12,24 +12,24 @@ export default function BookingCard({
   priceFromUSD: number;
 }) {
   return (
-    <aside className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:p-7">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="text-sm font-semibold tracking-widest text-white/60">
+    <aside className="w-full rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl sm:rounded-[34px] sm:p-7">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0 flex-1">
+          <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
             READY TO BOOK?
           </div>
-          <h3 className="mt-2 text-2xl font-bold text-white">
+          <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
             Reserve your spot
           </h3>
           <p className="mt-2 text-sm leading-6 text-white/70">
-            {tripTitle} • starting at{" "}
+            <span className="break-words">{tripTitle}</span> • starting at{" "}
             <span className="font-semibold text-white">
               {formatPriceUSD(priceFromUSD)}
             </span>{" "}
             per traveler.
           </p>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(45,125,255,0.16)] px-4 py-3 text-center">
+        <div className="shrink-0 self-start rounded-3xl border border-white/10 bg-[rgba(45,125,255,0.16)] px-4 py-3 text-center sm:self-auto">
           <div className="text-xs font-semibold text-white/70">Deposit</div>
           <div className="mt-1 text-lg font-bold text-white">
             {formatPriceUSD(Math.round(priceFromUSD * 0.18))}

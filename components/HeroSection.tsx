@@ -124,15 +124,17 @@ export default function HeroSection() {
               {trips.map((item) => (
                 <div
                   key={item.slug}
-                  className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.03)] px-4 py-3 transition hover:-translate-y-[2px] duration-300"
+                  className="group flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.03)] px-3 py-3 transition hover:-translate-y-[2px] duration-300 sm:px-4"
                 >
-                  <div>
-                    <div className="text-sm font-semibold text-white/90">
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate text-sm font-semibold text-white/90">
                       {item.title}
                     </div>
-                    <div className="text-xs text-white/65">{item.days} days / {item.nights} nights • {item.groupSize}</div>
+                    <div className="truncate text-xs text-white/65">
+                      {item.days} days / {item.nights} nights • {item.groupSize}
+                    </div>
                   </div>
-                  <Link href={`/trips/${item.slug}`} className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/10 border border-white/10">
+                  <Link href={`/trips/${item.slug}`} className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-accent/20 to-accent-2/10">
                     <span className="material-icons text-accent">
                       arrow_forward
                     </span>
@@ -141,13 +143,13 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+            <div className="mt-4 flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="text-sm font-semibold text-white/85">
                 Want a tailored group plan?
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-white"
+                className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-accent transition hover:text-white"
               >
                 Start here <span className="material-icons">east</span>
               </Link>

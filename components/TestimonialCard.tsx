@@ -20,9 +20,9 @@ export default function TestimonialCard({
     <Reveal
       as="article"
       once
-      className="rounded-3xl border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1"
+      className="h-full rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:rounded-3xl sm:p-6"
     >
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div className="flex items-center gap-2">
           {Array.from({ length: 5 }).map((_, i) => (
             <span
@@ -39,7 +39,9 @@ export default function TestimonialCard({
         </span>
       </div>
 
-      <p className="mt-4 text-base leading-7 text-white/85">“{quote}”</p>
+      <p className="mt-4 text-sm leading-7 text-white/85 sm:text-base">
+        “{quote}”
+      </p>
 
       <div className="mt-6">
         <div className="text-sm font-semibold text-white">{name}</div>

@@ -5,7 +5,7 @@ import Reveal from "./Reveal";
 
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl">
+    <div className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl sm:rounded-3xl sm:p-5">
       <div className="flex items-center justify-between gap-4">
         <div className="text-sm font-semibold tracking-widest text-white/60">
           {title}
@@ -34,7 +34,7 @@ export default function IncludedExcluded({
   excluded: string[];
 }) {
   return (
-    <section className="mt-10 grid gap-4 lg:grid-cols-2">
+    <section className="mt-6 grid gap-4 sm:mt-10 md:grid-cols-2">
       <Reveal as="div" once className="">
         <ListBlock title="Included" items={included} />
       </Reveal>

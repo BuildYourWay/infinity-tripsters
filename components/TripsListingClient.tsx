@@ -49,7 +49,7 @@ export default function TripsListingClient({ trips }: { trips: Trip[] }) {
           <div className="text-sm font-semibold tracking-widest text-white/60">
             TRIPS
           </div>
-          <h1 className="mt-3 text-4xl font-bold text-white">
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
             Find your next chapter
           </h1>
           <p className="mt-2 text-sm leading-6 text-white/70">
@@ -64,12 +64,12 @@ export default function TripsListingClient({ trips }: { trips: Trip[] }) {
         </div>
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[340px_1fr]">
-        <aside className="lg:sticky lg:top-[92px] self-start">
+      <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[minmax(0,340px)_1fr]">
+        <aside className="lg:sticky lg:top-[92px] lg:self-start">
           <Reveal
             as="div"
             once
-            className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl"
+            className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl sm:rounded-[34px] sm:p-5"
           >
             <div className="text-sm font-semibold tracking-widest text-white/60">
               FILTERS
@@ -141,27 +141,20 @@ export default function TripsListingClient({ trips }: { trips: Trip[] }) {
           </Reveal>
         </aside>
 
-        <section>
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-2">
-            {filteredTrips.map((t, idx) => (
-              <Reveal
-                as="div"
-                once
-                delayMs={idx * 20}
+        <section className="min-w-0">
+          <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2">
+            {filteredTrips.map((t) => (
+              <TripCard
                 key={t.slug}
-                className="h-full"
-              >
-                <TripCard
-                  slug={t.slug}
-                  title={t.title}
-                  destination={t.destination}
-                  tags={t.tags}
-                  image={t.imageThumb}
-                  priceFromUSD={t.priceFromUSD}
-                  durationDays={t.durationDays}
-                  groupSize={t.groupSize}
-                />
-              </Reveal>
+                slug={t.slug}
+                title={t.title}
+                destination={t.destination}
+                tags={t.tags}
+                image={t.imageThumb}
+                priceFromUSD={t.priceFromUSD}
+                durationDays={t.durationDays}
+                groupSize={t.groupSize}
+              />
             ))}
           </div>
 

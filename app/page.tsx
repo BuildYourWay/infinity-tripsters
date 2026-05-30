@@ -42,21 +42,21 @@ const destinationCards = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="flex w-full min-w-0 flex-col overflow-x-hidden">
       <HeroSection />
 
       {/* Animated destination cards */}
       <section className="mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               DESTINATIONS
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Luxury group travel, styled like a story
             </h2>
           </div>
-          <div className="hidden max-w-md text-right text-sm leading-6 text-white/65 sm:block">
+          <div className="hidden max-w-md text-sm leading-6 text-white/65 sm:block sm:text-right">
             Each destination is curated for cinematic pacing—so your trip
             feels premium from the first arrival moment.
           </div>
@@ -74,58 +74,55 @@ export default function Home() {
 
       {/* Upcoming trips carousel */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               UPCOMING TRIPS
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Next chapters are waiting
             </h2>
           </div>
-          <div className="text-sm text-white/60">
+          <div className="hidden text-sm text-white/60 lg:block">
             Scroll → for the full lineup
           </div>
         </div>
 
-        <div className="mt-8 overflow-x-auto pb-3">
-          <div className="flex gap-5 snap-x snap-mandatory">
-            {trips.slice(0, 4).map((t) => (
-              <div key={t.slug} className="w-[min(420px,88vw)] snap-start">
-                <TripCard
-                  slug={t.slug}
-                  title={t.title}
-                  destination={t.destination}
-                  tags={t.tags}
-                  image={t.imageThumb}
-                  priceFromUSD={t.priceFromUSD}
-                  durationDays={t.durationDays}
-                  groupSize={t.groupSize}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="mt-6 grid grid-cols-1 items-stretch gap-5 sm:mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {trips.slice(0, 4).map((t) => (
+            <TripCard
+              key={t.slug}
+              slug={t.slug}
+              title={t.title}
+              destination={t.destination}
+              tags={t.tags}
+              image={t.imageThumb}
+              priceFromUSD={t.priceFromUSD}
+              durationDays={t.durationDays}
+              groupSize={t.groupSize}
+            />
+          ))}
         </div>
       </section>
 
       {/* Community / travel moments */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               COMMUNITY MOMENTS
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Travel like friends. Remember like creators.
             </h2>
           </div>
-          <div className="hidden max-w-md text-sm leading-6 text-white/65 sm:block">
+          <p className="mt-2 max-w-md text-sm leading-6 text-white/65 md:text-right">
             We design the group rhythm: introductions, photo-ready stops, and
             recovery time—so your memories feel effortless.
-          </div>
+          </p>
         </div>
 
-        <div className="mt-10 rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl">
+        <div className="mt-6 rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-3 backdrop-blur-xl sm:mt-10 sm:rounded-[34px] sm:p-4">
           <GalleryGrid
             items={trips.slice(0, 6).map((t, i) => ({
               id: `m-${t.slug}`,
@@ -140,21 +137,21 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               TESTIMONIALS
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Premium feels better when it’s people-first
             </h2>
           </div>
-          <div className="text-sm text-white/60 hidden sm:block">
+          <div className="hidden text-sm text-white/60 sm:block">
             Verified traveler stories
           </div>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {testimonials.map((t) => (
             <TestimonialCard key={t.id} {...t} />
           ))}
@@ -163,7 +160,7 @@ export default function Home() {
 
       {/* Why travel with us */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {[
             {
               icon: "movie",
@@ -183,12 +180,14 @@ export default function Home() {
           ].map((f) => (
             <div
               key={f.title}
-              className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl"
+              className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:rounded-[34px] sm:p-6"
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[rgba(45,125,255,0.18)]">
                 <span className="material-icons text-accent">{f.icon}</span>
               </div>
-              <div className="mt-4 text-xl font-bold text-white">{f.title}</div>
+              <div className="mt-4 text-lg font-bold text-white sm:text-xl">
+                {f.title}
+              </div>
               <div className="mt-2 text-sm leading-7 text-white/70">
                 {f.desc}
               </div>
@@ -212,21 +211,22 @@ export default function Home() {
 
       {/* Instagram/Reels-style media section */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               REELS-STYLE MEDIA
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Your next memory reel starts here
             </h2>
           </div>
-          <div className="text-sm text-white/60 hidden sm:block">
-            Hover for cinematic overlays
+          <div className="text-xs text-white/60 sm:text-sm">
+            <span className="sm:hidden">Tap tiles for details</span>
+            <span className="hidden sm:inline">Hover for cinematic overlays</span>
           </div>
         </div>
 
-        <div className="mt-10 rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-4 backdrop-blur-xl">
+        <div className="mt-6 rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-3 backdrop-blur-xl sm:mt-10 sm:rounded-[34px] sm:p-4">
           <GalleryGrid
             items={trips.slice(0, 9).map((t, idx) => ({
               id: `r-${t.slug}`,

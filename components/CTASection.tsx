@@ -21,13 +21,13 @@ export default function CTASection({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl sm:p-10">
+    <section className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:rounded-[34px] sm:p-10">
       <div className="absolute inset-0 bg-[radial-gradient(800px_300px_at_20%_0%,rgba(45,125,255,0.35),transparent_55%),radial-gradient(700px_260px_at_100%_20%,rgba(0,212,255,0.22),transparent_55%)]" />
       <Reveal as="div" once className="relative">
         <div className="text-sm font-semibold tracking-widest text-white/70">
           {eyebrow}
         </div>
-        <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
+        <h2 className="mt-4 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
           {title}
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">

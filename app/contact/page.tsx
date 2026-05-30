@@ -25,11 +25,11 @@ export default function ContactPage() {
     <main className="pt-24">
       <section className="mx-auto max-w-7xl px-4 pb-10 sm:px-6">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl sm:p-8">
+          <div className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:rounded-[34px] sm:p-8">
             <div className="text-sm font-semibold tracking-widest text-white/60">
               CONTACT / INQUIRY
             </div>
-            <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
               Get a travel consultation
             </h1>
             <p className="mt-3 text-sm leading-7 text-white/70 sm:text-base">
@@ -146,7 +146,7 @@ export default function ContactPage() {
 
           {/* WhatsApp / consultation cards */}
           <div className="grid gap-6">
-            <div className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl sm:p-8">
+            <div className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:rounded-[34px] sm:p-8">
               <div className="text-sm font-semibold tracking-widest text-white/60">
                 WHATSAPP CTA
               </div>
@@ -186,7 +186,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[34px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 backdrop-blur-xl sm:p-8">
+            <div className="rounded-[28px] border border-white/10 bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-xl sm:rounded-[34px] sm:p-8">
               <div className="text-sm font-semibold tracking-widest text-white/60">
                 TRAVEL CONSULTATION
               </div>

@@ -37,17 +37,18 @@ export default function GalleryPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-        <div className="flex items-end justify-between gap-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
-            <div className="text-sm font-semibold tracking-widest text-white/60">
+            <div className="text-xs font-semibold tracking-widest text-white/60 sm:text-sm">
               GALLERY GRID
             </div>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold text-white sm:mt-3 sm:text-3xl lg:text-4xl">
               Reel-ready moments
             </h2>
           </div>
-          <div className="hidden text-sm text-white/60 sm:block">
-            Premium • Youthful • High contrast
+          <div className="text-xs text-white/60 sm:text-sm">
+            <span className="sm:hidden">Tap tiles for details</span>
+            <span className="hidden sm:inline">Premium • Youthful • High contrast</span>
           </div>
         </div>
 

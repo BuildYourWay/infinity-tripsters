@@ -10,6 +10,16 @@ type RevealProps<T extends React.ElementType> = {
   children: React.ReactNode;
 };
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function isBelowFold(el: HTMLElement) {
+  const rect = el.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  return rect.top >= vh * 0.9;
+}
+
 export default function Reveal<T extends React.ElementType = "div">({
   as,
   once = true,
@@ -18,14 +28,24 @@ export default function Reveal<T extends React.ElementType = "div">({
   children,
 }: RevealProps<T>) {
   const Component = (as ?? "div") as React.ElementType;
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
   const ref = React.useRef<HTMLElement | null>(null);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    if (visible && once) return;
+    if (prefersReducedMotion()) {
+      setVisible(true);
+      return;
+    }
+
+    if (!isBelowFold(el)) {
+      setVisible(true);
+      return;
+    }
+
+    setVisible(false);
 
     const obs = new IntersectionObserver(
       (entries) => {
@@ -36,12 +56,12 @@ export default function Reveal<T extends React.ElementType = "div">({
           }
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.08, rootMargin: "0px 0px -5% 0px" }
     );
 
     obs.observe(el);
     return () => obs.disconnect();
-  }, [once, visible]);
+  }, [once]);
 
   return (
     <Component
@@ -59,4 +79,3 @@ export default function Reveal<T extends React.ElementType = "div">({
     </Component>
   );
 }
-
